@@ -1,11 +1,17 @@
 const express = require('express');
 require('express-group-routes');
+const cors = require('cors');
 
 const app = express();
 const port = 3030;
 
 const pokemonMicroserviceURL = process.env.POKEMON_MS_API_URL || 'http://localhost:3000';
 
+
+app.use(cors({
+    origin: ['http://localhost:3008'],
+    credentials: true,
+  }))
 app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
