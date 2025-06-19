@@ -2,6 +2,8 @@ const express = require('express');
 require('express-group-routes');
 const cors = require('cors');
 
+require('dotenv').config()
+
 const app = express();
 const port = 3030;
 
