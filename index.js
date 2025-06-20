@@ -10,6 +10,8 @@ require('dotenv').config()
 const app = express();
 const port = 3030;
 
+app.use(express.json());
+
 // const pokemonProxy = createProxyMiddleware({
 //   target: process.env.POKEMON_MS_API_URL || 'http://localhost:3000',
 //   changeOrigin: true,

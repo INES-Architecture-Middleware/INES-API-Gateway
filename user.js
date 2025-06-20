@@ -34,7 +34,25 @@ const initUserRoutes = (app, userMicroserviceURL) => {
         }
     })
 
-    // app.user('')
+    app.post('/login', async (req, res) => {
+        try {
+            const response = await fetch(`${userMicroserviceURL}/user/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(req.body),
+            });
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            res.json(data);
+        } catch (error) {
+            console.error('Error logging in user:', error);
+            res.status(500).send('Internal Server Error');
+        }
+    });
 }
 
 module.exports = { initUserRoutes };
