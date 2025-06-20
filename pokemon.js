@@ -30,11 +30,16 @@ const initPokemonRoutes = (app, pokemonMicroserviceURL) => {
 
     app.post('/pokemon/filter/:pageId', async (req, res) => {
         try {
-            const response = await fetch(`${pokemonMicroserviceURL}/pokemon/filter/${req.params.pageId}`, {method: "POST"});
+            const response = await fetch(`${pokemonMicroserviceURL}/pokemon/filter/${req.params.pageId}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                }, 
+                body:JSON.stringify(req.body)
+            });
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            console.log(response)
             const data = await response.json();
             res.json(data);
         } catch (error) {
