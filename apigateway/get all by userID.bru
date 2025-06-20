@@ -1,0 +1,20 @@
+meta {
+  name: get all by userID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/team
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "user": {
+      "_id": "6855060609e7e3ba5a3041a8",
+      "username": "pedro"
+    }
+  }
+}

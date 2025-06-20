@@ -1,0 +1,26 @@
+meta {
+  name: create
+  type: http
+  seq: 1
+}
+
+put {
+  url: {{baseUrl}}/team
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: Application/JSON
+}
+
+body:json {
+  {
+    "name": "test",
+    "pokemonIds": [12, 33, 46],
+    "user": {
+      "_id": "6855060609e7e3ba5a3041a8",
+      "username": "pedro"
+    }
+  }
+}
