@@ -21,14 +21,12 @@ const initTeamRoutes = (app, teamMicroserviceURL) => {
 
     app.get("/team", async (req, res) => {
         try {
-            console.log(req.body);
-          
-        const response = await fetch(`${teamMicroserviceURL}/team`, {
+        const userId = req.query.userId;
+        const response = await fetch(`${teamMicroserviceURL}/team?userId=${userId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
-        //   body: JSON.stringify(req.body),
         });
         if (!response.ok) {
           throw new Error("Network response was not ok");
