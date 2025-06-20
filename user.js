@@ -1,4 +1,4 @@
-export const initUserRoutes = (app, userMicroserviceURL) => {
+const initUserRoutes = (app, userMicroserviceURL) => {
     app.post('/user', async (req, res) => {
         try {
             const response = await fetch(`${userMicroserviceURL}`, {
@@ -33,4 +33,8 @@ export const initUserRoutes = (app, userMicroserviceURL) => {
             res.status(500).send('Internal Server Error');
         }
     })
+
+    // app.user('')
 }
+
+module.exports = { initUserRoutes };

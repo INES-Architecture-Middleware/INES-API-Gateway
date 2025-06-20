@@ -1,4 +1,4 @@
-export const initPokemonRoutes = (app, pokemonMicroserviceURL) => {
+const initPokemonRoutes = (app, pokemonMicroserviceURL) => {
     app.get('/pokemon', async (req, res) => {
         try {
             const response = await fetch(`${pokemonMicroserviceURL}/pokemon/all`);
@@ -43,3 +43,5 @@ export const initPokemonRoutes = (app, pokemonMicroserviceURL) => {
         }
     })
 }
+
+module.exports = { initPokemonRoutes };

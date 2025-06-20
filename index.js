@@ -1,8 +1,8 @@
 const express = require('express');
 require('express-group-routes');
 const cors = require('cors');
-const { initUserRoutes } = require('./user.mjs');
-const { initPokemonRoutes } = require('./pokemon.mjs');
+const { initUserRoutes } = require('./user.js');
+const { initPokemonRoutes } = require('./pokemon.js');
 // const { createProxyMiddleware } = require('http-proxy-middleware');
 
 require('dotenv').config()
