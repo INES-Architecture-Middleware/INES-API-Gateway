@@ -1,0 +1,24 @@
+meta {
+  name: delete
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{baseUrl}}/team/{{id}}
+  body: none
+  auth: inherit
+}
+
+body:json {
+  {
+    "user": {
+      "_id": "6855060609e7e3ba5a3041a8",
+      "username": "pedro"
+    }
+  }
+}
+
+vars:pre-request {
+  id: 685540d2ad59fbf654f513f4
+}

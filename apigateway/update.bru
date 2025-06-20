@@ -1,0 +1,27 @@
+meta {
+  name: update
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/team
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: Application/JSON
+}
+
+body:json {
+  {
+    "_id": "685540bcad59fbf654f513f2",
+    "name": "Best Team",
+    "pokemonIds": [1, 13, 96],
+    "user": {
+      "_id": "6855060609e7e3ba5a3041a8",
+      "username": "pedro"
+    }
+  }
+}
