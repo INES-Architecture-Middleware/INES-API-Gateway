@@ -11,9 +11,9 @@ export function authenticateJWT(req, res, next) {
       if (!user || error) {
         return res.sendStatus(403);
       }
-      console.log(user.id);
-      const userFetched = await fetch(process.env.USER_MS_API_URL + "/user/" + user.id)
       
+      req.user = user.id
+      next()
     });
   } else {
     res.sendStatus(401);
