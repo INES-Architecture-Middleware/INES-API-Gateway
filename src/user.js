@@ -44,6 +44,18 @@ const initUserRoutes = (app, userMicroserviceURL) => {
 
     // Users routes
 
+    app.get('/me', requestDetails, authenticateJWT, async (req, res) => {
+        try {
+            const data = await requests.get(`/user/${req.user}`)
+            res.json(data)
+            return
+        } catch (error) {
+            console.error(`Error fetching user with ID ${req.user}:`, error);
+            res.sendStatus(500)
+            return
+        }
+    })
+
     app.post('/user', requestDetails, authenticateJWT, async (req, res) => {
         try {
             const data = await requests.post(`/user`, JSON.stringify(req.body))
