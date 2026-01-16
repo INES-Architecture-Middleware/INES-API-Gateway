@@ -28,6 +28,18 @@ const initPokemonRoutes = (app, pokemonMicroserviceURL) => {
         }
     })
 
+    app.get('/pokemon/random', requestDetails, async (req, res) => {
+        try {
+            const response = await requests.get(`/pokemon/random`)
+            res.json(response);
+            return
+        } catch (error) {
+            console.error('Error fetching Pokemon data:', error);
+            res.sendStatus(500)
+            return
+        }
+    })
+
     app.get('/pokemon/:id', requestDetails, async (req, res) => {
         try {
             const pokemonId = req.params.id;
